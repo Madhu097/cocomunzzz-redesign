@@ -1,55 +1,55 @@
 /* Font Configuration (Aquavit Font Face mappings) */
 @font-face {
   font-family: 'Aquavit';
-  src: url('/font/aquavit-font/aquavit-regular.otf') format('opentype');
+  src: url('./assets/font/aquavit-font/aquavit-regular.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: 'Aquavit';
-  src: url('/font/aquavit-font/aquavit-medium.otf') format('opentype');
+  src: url('./assets/font/aquavit-font/aquavit-medium.otf') format('opentype');
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
   font-family: 'Aquavit';
-  src: url('/font/aquavit-font/aquavit-semibold.otf') format('opentype');
+  src: url('./assets/font/aquavit-font/aquavit-semibold.otf') format('opentype');
   font-weight: 600;
   font-style: normal;
 }
 @font-face {
   font-family: 'Aquavit';
-  src: url('/font/aquavit-font/aquavit-bold.otf') format('opentype');
+  src: url('./assets/font/aquavit-font/aquavit-bold.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
   font-family: 'Aquavit';
-  src: url('/font/aquavit-font/aquavit-extrabold.otf') format('opentype');
+  src: url('./assets/font/aquavit-font/aquavit-extrabold.otf') format('opentype');
   font-weight: 800;
   font-style: normal;
 }
 @font-face {
   font-family: 'Aquavit';
-  src: url('/font/aquavit-font/aquavit-black.otf') format('opentype');
+  src: url('./assets/font/aquavit-font/aquavit-black.otf') format('opentype');
   font-weight: 900;
   font-style: normal;
 }
 @font-face {
   font-family: 'Aquavit';
-  src: url('/font/aquavit-font/aquavit-light.otf') format('opentype');
+  src: url('./assets/font/aquavit-font/aquavit-light.otf') format('opentype');
   font-weight: 300;
   font-style: normal;
 }
 @font-face {
   font-family: 'Aquavit';
-  src: url('/font/aquavit-font/aquavit-extralight.otf') format('opentype');
+  src: url('./assets/font/aquavit-font/aquavit-extralight.otf') format('opentype');
   font-weight: 200;
   font-style: normal;
 }
 @font-face {
   font-family: 'Aquavit';
-  src: url('/font/aquavit-font/aquavit-thin.otf') format('opentype');
+  src: url('./assets/font/aquavit-font/aquavit-thin.otf') format('opentype');
   font-weight: 100;
   font-style: normal;
 }

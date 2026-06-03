@@ -4,6 +4,7 @@ import useScrollReveal from '../hooks/useScrollReveal';
 import coldCoffeePng from '../assets/products/cold coffee.png';
 import biscoffPng from '../assets/products/BISCOFF.png';
 import cookiesPng from '../assets/products/coockies.png';
+import element3 from '../assets/elements/3.png';
 import './Sections.css';
 
 export default function ProductStories({ onSelectProduct }) {
@@ -78,7 +79,7 @@ export default function ProductStories({ onSelectProduct }) {
 
       {/* Background hand-sketched coastal palms scene */}
       <img 
-        src="/elements/3.png" 
+        src={element3} 
         alt="Beach Palms Illustration" 
         className="stories-bg-illustration reveal-fade delay-5" 
       />

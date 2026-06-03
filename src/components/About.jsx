@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import CurvedDivider from './CurvedDivider';
 import useScrollReveal from '../hooks/useScrollReveal';
+import element1 from '../assets/elements/1.png';
 import './Sections.css';
 
 export default function About() {
@@ -41,7 +42,7 @@ export default function About() {
 
       {/* Background hand-sketched tropical island scene */}
       <img 
-        src="/elements/1.png" 
+        src={element1} 
         alt="Tropical Island Illustration" 
         className="about-bg-illustration reveal-fade delay-5" 
       />

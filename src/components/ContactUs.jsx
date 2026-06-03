@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import CurvedDivider from './CurvedDivider';
 import contactGif from '../assets/contact video.gif';
+import element4 from '../assets/elements/4.png';
+import element6 from '../assets/elements/6.png';
 import './Sections.css';
 
 export default function ContactUs() {
@@ -117,12 +119,12 @@ export default function ContactUs() {
 
       {/* Background hand-sketched coffee bean and coconut illustrations */}
       <img 
-        src="/elements/4.png" 
+        src={element4} 
         alt="Coffee Bean Illustration" 
         className="contact-bg-bean reveal-fade delay-4" 
       />
       <img 
-        src="/elements/6.png" 
+        src={element6} 
         alt="Coconut Illustration" 
         className="contact-bg-coconut reveal-fade delay-5" 
       />

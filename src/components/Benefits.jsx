@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { ShieldCheck, Zap, Heart, Coffee } from 'lucide-react';
 import CurvedDivider from './CurvedDivider';
 import useScrollReveal from '../hooks/useScrollReveal';
+import element5 from '../assets/elements/5.png';
 import './Sections.css';
 
 export default function Benefits() {
@@ -62,7 +63,7 @@ export default function Benefits() {
 
       {/* Background hand-sketched single palm illustration */}
       <img 
-        src="/elements/5.png" 
+        src={element5} 
         alt="Single Palm Illustration" 
         className="benefits-bg-illustration reveal-fade delay-5" 
       />

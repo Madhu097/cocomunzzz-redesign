@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import CurvedDivider from './CurvedDivider';
 import useScrollReveal from '../hooks/useScrollReveal';
+import element2 from '../assets/elements/2.png';
 import './Sections.css';
 
 export default function PressMedia() {
@@ -59,7 +60,7 @@ export default function PressMedia() {
 
       {/* Background hand-sketched coastal palms illustration */}
       <img 
-        src="/elements/2.png" 
+        src={element2} 
         alt="Two Palms Illustration" 
         className="press-bg-illustration reveal-fade delay-5" 
       />
