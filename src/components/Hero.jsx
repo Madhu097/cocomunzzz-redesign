@@ -6,8 +6,19 @@ import heroVideo from '../assets/hero 2.mp4';
 import logoImg from '../assets/Logo.png';
 import CurvedDivider from './CurvedDivider';
 
+// Smooth scroll helper
+function scrollTo(id) {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: 'smooth' });
+}
+
 export default function Hero() {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const closeAndScroll = (id) => {
+    setMenuOpen(false);
+    setTimeout(() => scrollTo(id), 50);
+  };
 
   return (
     <section className="hero-banner">
@@ -25,16 +36,16 @@ export default function Hero() {
         {/* Desktop Navigation */}
         <nav className="desktop-nav">
           <ul className="nav-links">
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#product">Product</a></li>
-            <li><a href="#benefits">Benefits</a></li>
-            <li><a href="#testimonial">Testimonial</a></li>
+            <li><a href="#about" onClick={e => { e.preventDefault(); scrollTo('about'); }}>About Us</a></li>
+            <li><a href="#product" onClick={e => { e.preventDefault(); scrollTo('product'); }}>Product</a></li>
+            <li><a href="#benefits" onClick={e => { e.preventDefault(); scrollTo('benefits'); }}>Benefits</a></li>
+            <li><a href="#testimonial" onClick={e => { e.preventDefault(); scrollTo('testimonial'); }}>Testimonial</a></li>
           </ul>
         </nav>
         
         {/* Desktop CTA */}
         <div className="nav-cta-container">
-          <div className="btn-pill-group">
+          <div className="btn-pill-group" onClick={() => scrollTo('contact')} style={{ cursor: 'pointer' }}>
             <button className="btn-pill">Order Now</button>
             <button className="btn-arrow-circle" aria-label="Go to ordering page">
               <ArrowUpRight size={20} />
@@ -42,9 +53,9 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Hamburger Toggle (Mobile/Tablet View) */}
+        {/* Hamburger Toggle (Mobile/Tablet View) — shows X when open */}
         <button 
-          className={`mobile-menu-toggle ${menuOpen ? 'fixed-toggle' : ''}`} 
+          className={`mobile-menu-toggle ${menuOpen ? 'is-open' : ''}`}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-expanded={menuOpen}
           aria-label="Toggle menu"
@@ -64,14 +75,23 @@ export default function Hero() {
 
       {/* Premium Glass Mobile Drawer Overlay */}
       <div className={`mobile-nav-drawer ${menuOpen ? 'open' : ''}`}>
+        {/* Close button INSIDE the drawer at the top */}
+        <button
+          className="drawer-close-btn"
+          onClick={() => setMenuOpen(false)}
+          aria-label="Close menu"
+        >
+          <X size={24} />
+        </button>
+
         <ul className="mobile-drawer-links">
-          <li><a href="#about" onClick={() => setMenuOpen(false)}>About Us</a></li>
-          <li><a href="#product" onClick={() => setMenuOpen(false)}>Product</a></li>
-          <li><a href="#benefits" onClick={() => setMenuOpen(false)}>Benefits</a></li>
-          <li><a href="#testimonial" onClick={() => setMenuOpen(false)}>Testimonial</a></li>
+          <li onClick={() => closeAndScroll('about')}><a href="#about" onClick={e => e.preventDefault()}>About Us</a></li>
+          <li onClick={() => closeAndScroll('product')}><a href="#product" onClick={e => e.preventDefault()}>Product</a></li>
+          <li onClick={() => closeAndScroll('benefits')}><a href="#benefits" onClick={e => e.preventDefault()}>Benefits</a></li>
+          <li onClick={() => closeAndScroll('testimonial')}><a href="#testimonial" onClick={e => e.preventDefault()}>Testimonial</a></li>
         </ul>
-        <div className="mobile-drawer-cta" onClick={() => setMenuOpen(false)}>
-          <div className="btn-pill-group" style={{ justifyContent: 'center' }}>
+        <div className="mobile-drawer-cta">
+          <div className="btn-pill-group" style={{ justifyContent: 'center' }} onClick={() => closeAndScroll('contact')}>
             <button className="btn-pill" style={{ width: 'auto' }}>Order Now</button>
             <button className="btn-arrow-circle">
               <ArrowUpRight size={20} />
@@ -101,14 +121,14 @@ export default function Hero() {
           </p>
 
           <div className="hero-ctas">
-            <div className="btn-pill-group">
+            <div className="btn-pill-group" onClick={() => scrollTo('product')} style={{ cursor: 'pointer' }}>
               <button className="btn-pill">Our Products</button>
               <button className="btn-arrow-circle" aria-label="View our products">
                 <ArrowUpRight size={20} />
               </button>
             </div>
             
-            <button className="btn-video">
+            <button className="btn-video" onClick={() => scrollTo('gallery')}>
               <span className="video-play-circle">
                 <Play size={18} fill="currentColor" />
               </span>

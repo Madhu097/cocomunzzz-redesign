@@ -2337,3 +2337,186 @@
   }
 }
 
+/* ==========================================================================
+   Touch Device Overrides — Disable hover animations triggered during scroll
+   @media (pointer: coarse) targets phones/tablets with touch/stylus input
+   ========================================================================== */
+@media (pointer: coarse) {
+  /* Product cards */
+  .product-card-wrapper:hover .product-card {
+    transform: none;
+    background: linear-gradient(135deg, rgba(251, 243, 224, 0.96) 0%, rgba(251, 243, 224, 0.91) 100%);
+    border-color: rgba(198, 100, 69, 0.16);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25), inset 0 0 20px rgba(251, 243, 224, 0.6);
+  }
+  .product-card-wrapper:hover .product-glow { opacity: 0; }
+  .product-card-wrapper:hover .product-bg-title { opacity: 0; }
+  .product-card-wrapper:hover .product-image-container {
+    transform: translateX(-50%) translateZ(0) scale(1);
+  }
+  .product-card-wrapper:hover .product-img {
+    filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.3));
+  }
+  .product-card-wrapper:hover .product-tag { transform: translateZ(15px); }
+  .product-card-wrapper:hover .product-details { transform: translateZ(0); }
+
+  /* Benefit cards */
+  .benefit-card:hover {
+    transform: none;
+    background-color: rgba(251, 243, 224, 0.75);
+    border-color: rgba(198, 100, 69, 0.12);
+    box-shadow: 0 10px 30px rgba(153, 67, 42, 0.04);
+  }
+
+  /* Testimonial cards */
+  .testimonial-card:hover {
+    transform: none;
+    border-color: rgba(194, 92, 55, 0.1);
+    background-color: rgba(255, 255, 255, 0.03);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Story step cards */
+  .story-step-card:hover {
+    transform: none;
+    background: rgba(251, 243, 224, 0.75);
+    border-color: rgba(198, 100, 69, 0.15);
+    box-shadow: 0 10px 30px rgba(153, 67, 42, 0.05);
+  }
+  .story-step-card:hover .story-step-num { transform: none; }
+
+  /* Location cards */
+  .location-card:hover {
+    transform: none;
+    border-color: rgba(194, 92, 55, 0.12);
+    background-color: rgba(255, 255, 255, 0.03);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  }
+  .location-card:hover .location-img { transform: none; }
+
+  /* Press cards */
+  .press-card:hover {
+    transform: none;
+    border-color: rgba(194, 92, 55, 0.15);
+    background-color: rgba(250, 245, 240, 0.75);
+    box-shadow: 0 15px 35px rgba(21, 13, 10, 0.05);
+  }
+  .press-card:hover::before { transform: scaleY(0); }
+
+  /* Gallery items */
+  .gallery-3d-item-wrapper:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    border-color: rgba(194, 92, 55, 0.15);
+  }
+  .gallery-3d-item-wrapper:hover .gallery-img { transform: none; }
+
+  /* Social circles in footer */
+  .social-circle:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+    color: var(--text-secondary);
+    border-color: rgba(255, 255, 255, 0.1);
+    transform: none;
+  }
+
+  /* Hero pill buttons */
+  .btn-pill-group:hover .btn-pill {
+    background-color: var(--accent-cream);
+    color: var(--text-dark);
+    transform: none;
+  }
+  .btn-pill-group:hover .btn-arrow-circle {
+    background-color: var(--accent-cream);
+    color: var(--text-dark);
+    transform: none;
+  }
+
+  /* ====================================================================
+     SCROLL-ACTIVE — Replicates hover effects when card enters viewport
+     These styles are triggered by IntersectionObserver in App.jsx
+     ==================================================================== */
+
+  /* Product cards */
+  .product-card-wrapper.scroll-active .product-card {
+    transform: translateY(-10px);
+    background: linear-gradient(135deg, rgba(251, 243, 224, 0.99) 0%, rgba(251, 243, 224, 0.96) 100%);
+    border-color: var(--accent-gold);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45),
+                0 0 30px rgba(198, 100, 69, 0.2),
+                inset 0 0 15px rgba(251, 243, 224, 0.85);
+  }
+  .product-card-wrapper.scroll-active .product-glow {
+    opacity: 1;
+    transform: translate(-50%, -50%) translateZ(-10px) scale(1.15);
+  }
+  .product-card-wrapper.scroll-active .product-image-container {
+    transform: translateX(-50%) translateY(-25px) translateZ(30px) scale(1.08);
+  }
+  .product-card-wrapper.scroll-active .product-img {
+    filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.55));
+  }
+  .product-card-wrapper.scroll-active .product-tag {
+    transform: translateZ(35px) scale(1.05) translateY(-5px);
+  }
+  .product-card-wrapper.scroll-active .product-details {
+    transform: translateZ(20px);
+  }
+
+  /* Benefit cards */
+  .benefit-card.scroll-active {
+    transform: translateY(-5px);
+    background-color: var(--accent-cream);
+    border-color: var(--accent-gold);
+    box-shadow: 0 20px 40px rgba(153, 67, 42, 0.08);
+  }
+
+  /* Testimonial cards */
+  .testimonial-card.scroll-active {
+    border-color: var(--accent-gold);
+    background-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    transform: translateY(-5px);
+  }
+
+  /* Story step cards */
+  .story-step-card.scroll-active {
+    background-color: var(--accent-cream);
+    border-color: var(--accent-gold);
+    box-shadow: 0 25px 50px rgba(198, 100, 69, 0.12);
+    transform: translateY(-8px);
+  }
+  .story-step-card.scroll-active .story-step-num {
+    transform: scale(1.1) translateX(5px);
+  }
+
+  /* Location cards */
+  .location-card.scroll-active {
+    border-color: var(--accent-gold);
+    background-color: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.55), 0 0 25px rgba(194, 92, 55, 0.15);
+    transform: translateY(-8px);
+  }
+  .location-card.scroll-active .location-img {
+    transform: scale(1.05);
+  }
+
+  /* Press cards */
+  .press-card.scroll-active {
+    border-color: var(--accent-gold);
+    background-color: var(--accent-cream);
+    box-shadow: 0 20px 40px rgba(153, 67, 42, 0.08);
+    transform: translateY(-5px);
+  }
+  .press-card.scroll-active::before {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+
+  /* Gallery items */
+  .gallery-3d-item-wrapper.scroll-active {
+    box-shadow: 0 25px 50px rgba(194, 92, 55, 0.25);
+    border-color: var(--accent-gold);
+  }
+  .gallery-3d-item-wrapper.scroll-active .gallery-img {
+    transform: scale(1.08);
+  }
+}

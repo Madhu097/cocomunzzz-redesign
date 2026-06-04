@@ -128,13 +128,18 @@
   border: none;
   color: var(--text-primary);
   cursor: pointer;
-  z-index: 200; /* Must be above drawer (z-index: 110) to keep close X visible */
+  z-index: 200;
   position: relative;
-  transition: transform 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
   padding: 0.5rem;
 }
 
 .mobile-menu-toggle:hover {
+  color: var(--accent-gold);
+}
+
+/* When drawer is open, show the X with a highlight */
+.mobile-menu-toggle.is-open {
   color: var(--accent-gold);
 }
 
@@ -176,9 +181,20 @@
   letter-spacing: 1.5px;
   color: var(--text-secondary);
   transition: color 0.3s ease;
+  display: block; /* Makes the anchor fill the full <li> width */
+  width: 100%;
+  pointer-events: none; /* Click handled by <li> */
 }
 
-.mobile-drawer-links a:hover {
+.mobile-drawer-links li {
+  cursor: pointer;
+  padding: 0.25rem 0;
+  width: 100%;
+  display: block;
+}
+
+.mobile-drawer-links li:hover a,
+.mobile-drawer-links li:active a {
   color: var(--accent-cream);
 }
 
@@ -203,42 +219,29 @@
   to   { opacity: 1; }
 }
 
-/* Fixed hamburger close toggle when drawer is open */
-.mobile-menu-toggle.fixed-toggle {
-  position: fixed;
-  top: 1.15rem;
-  right: 2rem;
-  z-index: 220; /* Keep it above the drawer and backdrop */
+/* Close button inside the drawer */
+.drawer-close-btn {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
   background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 50%;
   width: 2.75rem;
   height: 2.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0;
-  transition: background 0.3s ease, color 0.3s ease, transform 0.3s/rotate 0.3s ease;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  z-index: 5;
 }
 
-.mobile-menu-toggle.fixed-toggle:hover {
+.drawer-close-btn:hover {
   background: var(--accent-gold);
   border-color: var(--accent-gold);
   transform: rotate(90deg);
-}
-
-@media (max-width: 992px) {
-  .mobile-menu-toggle.fixed-toggle {
-    top: 1.15rem;
-    right: 1.5rem;
-  }
-}
-
-@media (max-width: 576px) {
-  .mobile-menu-toggle.fixed-toggle {
-    top: 0.85rem;
-    right: 1rem;
-  }
 }
 
 
@@ -661,5 +664,31 @@
   }
   .mobile-drawer-links a {
     font-size: 1.25rem;
+  }
+}
+
+/* Touch device: disable hover animations triggered during scroll */
+@media (pointer: coarse) {
+  .showcase-image-wrapper:hover {
+    transform: none;
+    border-color: rgba(226, 155, 34, 0.25);
+    box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7);
+  }
+  .showcase-image-wrapper:hover .showcase-img { transform: none; }
+  .btn-video:hover .video-play-circle {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: none;
+  }
+  .btn-video:hover { color: var(--text-primary); }
+  .logo-img:hover { transform: none; }
+  .drawer-close-btn:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.12);
+    transform: none;
+  }
+  /* Stop floating animation on mobile to prevent jitter while scrolling */
+  .product-img {
+    animation: none !important;
   }
 }
