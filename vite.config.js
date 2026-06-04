@@ -4,5 +4,5 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: './', // Ensures relative assets loading for subpath deployments like GitHub Pages
+  base: '/cocomunzzz-redesign/', // GitHub Pages repo sub-path
 })
