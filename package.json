@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "copy-images": "node -e \"const fs = require('fs'); fs.copyFileSync('C:/Users/kuruv/.gemini/antigravity-ide/brain/f9aa5b7a-6a33-4c1d-bf52-e2f00dbd4e05/location_malibu_1780386804773.png', 'd:/firstlook/cocomunzzz redesign/src/assets/location_malibu.png'); fs.copyFileSync('C:/Users/kuruv/.gemini/antigravity-ide/brain/f9aa5b7a-6a33-4c1d-bf52-e2f00dbd4e05/gallery_latte_1780386823503.png', 'd:/firstlook/cocomunzzz redesign/src/assets/gallery_latte.png'); fs.copyFileSync('C:/Users/kuruv/.gemini/antigravity-ide/brain/f9aa5b7a-6a33-4c1d-bf52-e2f00dbd4e05/gallery_barista_1780386839093.png', 'd:/firstlook/cocomunzzz redesign/src/assets/gallery_barista.png'); console.log('Success copying images');\"",
-    "migrate-assets": "node scripts/migrate.js",
+    "migrate-assets": "node scripts/migrate.cjs",
     "predeploy": "npm run migrate-assets && npm run build",
     "deploy": "gh-pages -d dist"
   },
