@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Hero from './components/Hero';
 import About from './components/About';
 import Products from './components/Products';
@@ -14,13 +14,16 @@ import Footer from './components/Footer';
 
 function App() {
   const [activeStory, setActiveStory] = useState(null);
+  // Track if user has actually opened a story (skip scroll on first load)
+  const hasVisitedStory = useRef(false);
 
-  // Scroll to top when switching to a story; scroll to stories section when returning to main page
   useEffect(() => {
     if (activeStory) {
+      // User opened a story — scroll to top and mark as visited
+      hasVisitedStory.current = true;
       window.scrollTo({ top: 0, behavior: 'instant' });
-    } else {
-      // Wait a short frame for the components to mount, then scroll to stories section
+    } else if (hasVisitedStory.current) {
+      // User returned from a story — scroll back to stories section
       const timer = setTimeout(() => {
         const storiesSection = document.getElementById('stories');
         if (storiesSection) {
@@ -29,6 +32,8 @@ function App() {
       }, 20);
       return () => clearTimeout(timer);
     }
+    // On initial page load (hasVisitedStory.current = false, activeStory = null)
+    // → do nothing, stay at top (Hero section)
   }, [activeStory]);
 
   if (activeStory) {
